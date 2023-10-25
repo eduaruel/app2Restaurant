@@ -9,9 +9,37 @@
 </head>
 <body>
         <nav id="navegacion" class="bg-red-950 h-16 right-0 left-0"></nav>
+        
+        <div class="pt-16 gap-4 h-screen flex max-w-7xl max-auto justify-center items-center px-4">
+            <form id="formulario" class="flex flex-col gap-4 bg-blue-600 p-4 rounded-lg text-lg shadow-xl lg:w-2/4">
+                <div class="flex flex-col gap-2 ">
+                    <label for="Nombre" class="font-bold">Nombre y Apellido <span class="text-red-600">*</span></label>
+                    <input type="text" name="nombre-input" id="nombre-input" autocomplete="off" placeholder="Nombre y Apellido" class="rounded-lg p-2 focus:outline-blue-600">
+                </div>
 
+               
+                <div class="flex flex-col gap-2 ">
+
+                    <label for="email"  class="font-bold">Email <span class="text-red-600">*</span></label>
+                    <input type="email" name="nombre-input" id="nombre-input" autocomplete="off" placeholder=Email" class="rounded-lg p-2 focus:outline-blue-600">
+                </div>
+                
+                <div class="flex flex-col gap-2 ">
+
+                    <label for="password"  class="font-bold">password <span class="text-red-600">*</span></label>
+                    <input type="password" name="nombre-input" id="nombre-input" autocomplete="off"  class="rounded-lg p-2 focus:outline-blue-600">
+                </div>
+               <div class="flex flex-col gap-2 ">
+                   
+                   <label for="repite"  class="font-bold">Repite el password <span class="text-red-600">*</span></label>
+                   <input type="password" name="nombre-input" id="nombre-input" autocomplete="off"  class="rounded-lg p-2 focus:outline-blue-600">
+               </div>
+                <button class="bg-blue-950 px-4 rounded-lg text-white hover:bg-blue-400 py-2 font-bold transition ease-in-out">Registrar</button>
+            </form>
+        </div>
     
+        <script src="../components/nav.js"></script>
+        <script src="registro.js"></script>
 </body>
-<script src="../components/nav.js"></script>
 
 </html>

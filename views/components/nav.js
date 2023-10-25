@@ -18,7 +18,17 @@ const crearNavHome = () => {
                     <a href="/login" class=" text-white font-bold hover:bg-red-400 py-2 px-4 rounded-lg transition ease-in-out ">Login</a>
                     <a href="/registro" class="bg-red-500 text-white hover:text-black font-bold hover:bg-red-300 py-2 px-4 rounded-lg transition ease-in-out ">Registro</a>
                 </div>
-        </div>
+               
+        
+        <!--menu movil-->
+         <div class="bg-blue-900/60 fixed top-16 right-0 left-0 bottom-0 justify-center items-center gap-4 hidden">
+                  <a href="/login" class=" text-white font-bold hover:bg-red-400 py-2 px-4 rounded-lg transition ease-in-out ">Login</a>
+                    <a href="/registro" class="bg-red-500 text-white hover:text-black font-bold hover:bg-red-300 py-2 px-4 rounded-lg transition ease-in-out ">Registro</a>
+              </div>
+       
+
+
+
     `
 }
 
@@ -40,7 +50,13 @@ const crearNavLogin = () => {
                    
                     <a href="/registro" class="bg-red-500 text-white hover:text-black font-bold hover:bg-red-300 py-2 px-4 rounded-lg transition ease-in-out ">Registro</a>
                 </div>
+                  <!--menu movil-->
+         <div class="bg-blue-900/60 fixed top-16 right-0 left-0 bottom-0 justify-center items-center gap-4 hidden">
+                  <a href="/login" class=" text-white font-bold hover:bg-red-400 py-2 px-4 rounded-lg transition ease-in-out ">Login</a>
+                    <a href="/registro" class="bg-red-500 text-white hover:text-black font-bold hover:bg-red-300 py-2 px-4 rounded-lg transition ease-in-out ">Registro</a>
+              </div>
         </div>
+       
     `
 }
 const crearNavReg = () => {
@@ -61,15 +77,43 @@ const crearNavReg = () => {
                    
                     <a href="/login" class="bg-red-500 text-white hover:text-black font-bold hover:bg-red-300 py-2 px-4 rounded-lg transition ease-in-out ">Login</a>
                 </div>
+                <!--menu movil-->
+         <div class="bg-blue-900/60 fixed top-16 right-0 left-0 bottom-0 justify-center items-center gap-4 hidden">
+                  <a href="/login" class=" text-white font-bold hover:bg-red-400 py-2 px-4 rounded-lg transition ease-in-out ">Login</a>
+                    <a href="/registro" class="bg-red-500 text-white hover:text-black font-bold hover:bg-red-300 py-2 px-4 rounded-lg transition ease-in-out ">Registro</a>
+              </div>
         </div>
+         
     `
 }
 
 //agregar la ruta para los componentes
-if(window.location.pathname === '/'){
+if (window.location.pathname === '/') {
     crearNavHome();
-}else if(window.location.pathname ==='/login/'){
+} else if (window.location.pathname === '/login/') {
     crearNavLogin();
-}else if(window.location.pathname ==='/registro/'){
+} else if (window.location.pathname === '/registro/') {
     crearNavReg();
 }
+
+const navBtn = navegacion.children[0].children[1];
+//console.log(navBtn);
+
+navBtn.addEventListener('click', e => {
+    const menuMobil = navegacion.children[0].children[3]
+    //console.log(menuMobil);
+    if (!navBtn.classList.contains('active')) {
+        //menu movil esta cerrado y vamos a mostrar el despliegue
+        navBtn.classList.add('active')
+        navBtn.innerHTML = '<path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M18 6l-12 12" /><path d="M6 6l12 12" />'
+
+        menuMobil.classList.remove('hidden')
+        menuMobil.classList.add('flex')
+    } else {
+        navBtn.classList.remove('active');
+        navBtn.innerHTML = ' <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />';
+        menuMobil.classList.remove('flex');
+        menuMobil.classList.add('hidden');
+
+    }
+})
