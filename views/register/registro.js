@@ -4,6 +4,8 @@ const emailInput = document.querySelector('#email-input');
 const passwordInput = document.querySelector('#password-input');
 const matchInput = document.querySelector('#password-input2');
 const btnRegistro = document.querySelector('#form-btn');
+//console.log(axios)
+
 
 // validamos
 // validacion con regex
@@ -39,7 +41,7 @@ passwordInput.addEventListener('input', e => {
 matchInput.addEventListener('input', e => {
     valmatch = e.target.value === passwordInput.value;
     validar(matchInput, valmatch);
-    validad(passwordInput, valpass)
+    validar(passwordInput, valpass)
 })
 
 const validar = (input, value) => {
@@ -59,4 +61,28 @@ const validar = (input, value) => {
         input.classList.remove('focus:outline-green-700', 'outline-4');
         input.classList.add('focus:outline-red-700', 'outline-4');
     }
+   
 }
+
+formulario.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    try {
+        const newUser = {
+
+            name: nameInput.value,
+            email: emailInput.value,
+            password: passwordInput.value
+        }
+
+        formulario.reset()
+
+        const response = await axios.post('/api/users', newUser);//el nombre api se puede cambiar por cualquier nombre es un alias que se coloca 
+        console.log(res);
+        // console.log(newUser)
+    } catch (error) {
+
+        console.log(error);
+
+    }
+})

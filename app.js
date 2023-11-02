@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const path = require('path');
+const usersRouter = require('./controllers/users');
 
 (async () => {
     try {
@@ -20,6 +21,12 @@ app.use('/login', express.static(path.resolve('views', 'login')));
 app.use('/registro', express.static(path.resolve('views', 'register')));
 app.use('/components', express.static(path.resolve('views', 'components')));
 app.use('/images', express.static(path.resolve('img')));
+
+//IMPORTANTE
+app.use(express.json());
+
+//rutas de backend
+app.use('/api/users', usersRouter)
 
 
 module.exports = app;
