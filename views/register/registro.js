@@ -1,3 +1,4 @@
+import { createNotificacio } from "../components/notificacion";
 const formulario = document.querySelector('#formulario');
 const nameInput = document.querySelector('#nombre-input');
 const emailInput = document.querySelector('#email-input');
@@ -83,6 +84,7 @@ formulario.addEventListener('submit', async e => {
     } catch (error) {
 
         console.log(error);
+        createNotificacio(true, error.response.data.error)
 
     }
 })
