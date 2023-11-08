@@ -61,7 +61,7 @@ const validar = (input, value) => {
         input.classList.remove('focus:outline-green-700', 'outline-4');
         input.classList.add('focus:outline-red-700', 'outline-4');
     }
-   
+
 }
 
 formulario.addEventListener('submit', async e => {

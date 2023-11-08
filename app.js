@@ -4,6 +4,9 @@ const app = express();
 const mongoose = require('mongoose');
 const path = require('path');
 const usersRouter = require('./controllers/users');
+const cors = require('cors');
+const cookieParser = require('cookie-parser');
+const morgan = require('morgan');
 
 (async () => {
     try {
@@ -24,6 +27,9 @@ app.use('/images', express.static(path.resolve('img')));
 
 //IMPORTANTE
 app.use(express.json());
+app.use(cors());
+app.use(cookieParser());
+app.use(morgan('tiny'));
 
 //rutas de backend
 app.use('/api/users', usersRouter)
