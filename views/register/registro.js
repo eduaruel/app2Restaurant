@@ -1,4 +1,4 @@
-import { createNotificacio } from "../components/notificacion";
+//import { createNotificacion } from "../components/notificacion";
 const formulario = document.querySelector('#formulario');
 const nameInput = document.querySelector('#nombre-input');
 const emailInput = document.querySelector('#email-input');
@@ -11,7 +11,7 @@ const btnRegistro = document.querySelector('#form-btn');
 // validamos
 // validacion con regex
 
-const nameVal = /^[A-Z]{1}[ a-zA-Z]+([a-zA-Z]+)?$/g;
+const nameVal = /^[A-Z]{1}[ a-zA-Z]+([A-Z]{1})([a-zA-Z]+)?$/g;
 const emailVal = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g
 
 const passwordVal = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z])(?=.*[!#$%&'*.+/=?^_`{|}~-]).{8,16}$/gm
@@ -79,12 +79,13 @@ formulario.addEventListener('submit', async e => {
         formulario.reset()
 
         const response = await axios.post('/api/users', newUser);//el nombre api se puede cambiar por cualquier nombre es un alias que se coloca 
-        console.log(res);
+        console.log(response);
         // console.log(newUser)
+        createNotificacion(false, response.data.msg)
     } catch (error) {
 
         console.log(error);
-        createNotificacio(true, error.response.data.error)
+        createNotificacion(true, error.response.data.error)
 
     }
 })

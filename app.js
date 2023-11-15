@@ -3,10 +3,10 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const path = require('path');
-const usersRouter = require('./controllers/users');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
+const usersRouter = require('./controllers/users');
 
 (async () => {
     try {
