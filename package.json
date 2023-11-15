@@ -18,6 +18,7 @@
     "mongoose": "^7.6.3",
     "morgan": "^1.10.0",
     "node.js": "0.0.1-security",
+    "nodemailer": "^6.9.7",
     "nodemon": "^3.0.1"
   },
   "devDependencies": {
